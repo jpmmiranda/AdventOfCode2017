@@ -28,6 +28,7 @@ public class Day1 {
                 r = parte1();
                 break;
             case 2:
+                r = parte2();
                 break;
             default:
                 break;
@@ -51,7 +52,7 @@ public class Day1 {
         inicio = getNumericValue(digits[0]);
 
         for (i = 0; i < length - 1; i++) {
-            if (getNumericValue(digits[i]) == getNumericValue(digits[i + 1]))  {
+            if (getNumericValue(digits[i]) == getNumericValue(digits[i + 1])) {
                 r += getNumericValue(digits[i]);
             }
         }
@@ -61,21 +62,37 @@ public class Day1 {
 
         return r;
     }
-    
+
     int parte2() {
         int r = 0;
         String input;
-        int inicio = 0, length, i, j = 0;
+        int nextInt = 0, length, i, j = 0;
 
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Input your number: ");
-        
+
         input = sc.next();
         System.out.println(input);
         char[] digits = input.toCharArray();
         length = digits.length;
-        
+
+        if (length > 1 && length % 2 == 0) {
+            nextInt = length / 2;
+        }
+
+        for (i = 0; i <= length-1; i++) {
+            if (i < nextInt) {
+                if (getNumericValue(digits[i]) == getNumericValue(digits[i + nextInt])) {
+                    r += getNumericValue(digits[i]);
+                }
+            } else {
+                if (getNumericValue(digits[i]) == getNumericValue(digits[i - nextInt])) {
+                    r += getNumericValue(digits[i]);
+                }
+            }
+        }
+
         return r;
     }
 }
