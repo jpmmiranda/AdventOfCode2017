@@ -20,7 +20,7 @@ public class Day1 {
         Scanner sc = new Scanner(System.in);
         int r = 0, parte = 0;
 
-        System.out.println("Choose a part!");
+        System.out.print("Choose a part!\n>");
         parte = sc.nextInt();
 
         switch (parte) {
@@ -43,7 +43,7 @@ public class Day1 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Input your number: ");
+        System.out.print("Input your number!\n>");
 
         input = sc.next();
         System.out.println(input);
@@ -70,7 +70,7 @@ public class Day1 {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Input your number: ");
+        System.out.print("Input your number!\n>");
 
         input = sc.next();
         System.out.println(input);
