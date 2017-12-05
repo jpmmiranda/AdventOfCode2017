@@ -41,15 +41,15 @@ public class AdventOfCode2017 {
                         break;
 
                     case 2:
+                        Day2 day2 = new Day2();
+                        resultado = day2.menu(parte, input);
                     default:
                         break;
                 }
             } else {
                 menu = 1;
             }
-            if (resultado != 0) {
                 System.out.println("Here's the output: " + resultado);
-            }
         }
 
         System.out.println("Goodbye!");
