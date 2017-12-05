@@ -28,7 +28,6 @@ public class AdventOfCode2017 {
             if (day != 0) {
                 System.out.print("Choose a part!\n0 to exit.\n> ");
                 parte = sc.nextInt();
-            } else {
             }
 
             if (day != 0 && parte != 0) {
