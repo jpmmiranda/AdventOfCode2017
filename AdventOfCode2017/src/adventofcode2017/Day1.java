@@ -6,9 +6,6 @@
 package adventofcode2017;
 
 import static java.lang.Character.getNumericValue;
-import static java.lang.Character.getNumericValue;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -16,37 +13,25 @@ import java.util.Scanner;
  */
 public class Day1 {
 
-    int menu() {
-        Scanner sc = new Scanner(System.in);
-        int r = 0, parte = 0;
-
-        System.out.print("Choose a part!\n>");
-        parte = sc.nextInt();
-
+    int menu(int parte, String input) {
+        int resultado = 0;
         switch (parte) {
             case 1:
-                r = parte1();
+                resultado = parte1(input);
                 break;
             case 2:
-                r = parte2();
+                resultado = parte2(input);
                 break;
             default:
                 break;
         }
-        return r;
+        return resultado;
     }
 
-    int parte1() {
+    int parte1(String input) {
         int r = 0;
-        String input;
-        int inicio = 0, length, i, j = 0;
+        int inicio, length, i;
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Input your number!\n>");
-
-        input = sc.next();
-        System.out.println(input);
         char[] digits = input.toCharArray();
         length = digits.length;
         inicio = getNumericValue(digits[0]);
@@ -63,17 +48,10 @@ public class Day1 {
         return r;
     }
 
-    int parte2() {
+    int parte2(String input) {
         int r = 0;
-        String input;
         int nextInt = 0, length, i, j = 0;
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Input your number!\n>");
-
-        input = sc.next();
-        System.out.println(input);
         char[] digits = input.toCharArray();
         length = digits.length;
 
@@ -81,7 +59,7 @@ public class Day1 {
             nextInt = length / 2;
         }
 
-        for (i = 0; i <= length-1; i++) {
+        for (i = 0; i <= length - 1; i++) {
             if (i < nextInt) {
                 if (getNumericValue(digits[i]) == getNumericValue(digits[i + nextInt])) {
                     r += getNumericValue(digits[i]);

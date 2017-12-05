@@ -5,7 +5,6 @@
  */
 package adventofcode2017;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -17,27 +16,44 @@ public class AdventOfCode2017 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        int menu = 0, menuTrue = 0, parte = 0, resultado = 0;
+    public static void main(String[] args) {
+        int day, menu = 0, parte = 0, resultado = 0;
         Scanner sc = new Scanner(System.in);
+        String input;
 
-        while (menuTrue == 0) {
+        while (menu == 0) {
+
             System.out.print("Choose a day!\n0 to exit.\n> ");
-            menu = sc.nextInt();
+            day = sc.nextInt();
+            if (day != 0) {
+                System.out.print("Choose a part!\n0 to exit.\n> ");
+                parte = sc.nextInt();
+            } else {
+            }
 
-            switch (menu) {
-                case 1:
-                    Day1 day1 = new Day1();
-                    resultado = day1.menu();
-                    System.out.println("O resultado é: " + resultado);
-                    break;
-                case 0:
-                    menuTrue = 1;
-                    break;
-                default:
-                    break;
+            if (day != 0 && parte != 0) {
+                System.out.print("Input your number!\n> ");
+                input = sc.next();
+
+                switch (day) {
+                    case 1:
+                        Day1 day1 = new Day1();
+                        resultado = day1.menu(parte, input);
+                        break;
+
+                    case 2:
+                    default:
+                        break;
+                }
+            } else {
+                menu = 1;
+            }
+            if (resultado != 0) {
+                System.out.println("Here's the output: " + resultado);
             }
         }
+
+        System.out.println("Goodbye!");
     }
 
 }
