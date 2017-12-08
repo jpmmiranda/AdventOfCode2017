@@ -6,6 +6,7 @@
 package adventofcode2017;
 
 import static java.lang.Character.getNumericValue;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +14,7 @@ import static java.lang.Character.getNumericValue;
  */
 public class Day1 {
 
-    int menu(int parte, String input) {
+    int menu(int parte, ArrayList<String> input) {
         int resultado = 0;
         switch (parte) {
             case 1:
@@ -28,11 +29,11 @@ public class Day1 {
         return resultado;
     }
 
-    int parte1(String input) {
+    int parte1(ArrayList<String> input) {
         int r = 0;
         int inicio, length, i;
 
-        char[] digits = input.toCharArray();
+        char[] digits = input.get(0).toCharArray();
         length = digits.length;
         inicio = getNumericValue(digits[0]);
 
@@ -48,11 +49,11 @@ public class Day1 {
         return r;
     }
 
-    int parte2(String input) {
+    int parte2(ArrayList<String> input) {
         int r = 0;
         int nextInt = 0, length, i, j = 0;
 
-        char[] digits = input.toCharArray();
+        char[] digits = input.get(0).toCharArray();
         length = digits.length;
 
         if (length > 1 && length % 2 == 0) {

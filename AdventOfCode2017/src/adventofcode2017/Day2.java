@@ -5,13 +5,15 @@
  */
 package adventofcode2017;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author João Miranda
  */
 public class Day2 {
 
-    int menu(int parte, String input) {
+    int menu(int parte, ArrayList<String> input) {
         int resultado = 0;
         switch (parte) {
             case 1:
@@ -26,36 +28,37 @@ public class Day2 {
         return resultado;
     }
 
-    int parte1(String input) {
+    int parte1(ArrayList<String> input) {
         int length = 0, resultado = 0;
         int max, min;
-        
-        String[] split = input.split("\\s+");
 
-        length = split.length;
-        int[] array = new int[length];
+        for (int i = 0; i < input.size(); i++) {
+            String[] numbers = input.get(i).split("\\s+");
 
-        for (int i = 0; i < length - 1; i++) {
-            array[i] = Integer.parseInt(split[i]);
-        }
-        
-        max = array[0];
-        min = array[0];
-
-        for (int i = 0; i < array.length - 1; i++) {
-            if (max < array[i]) {
-                max = array[i];
-            } else if (min > array[i]) {
-                min = array[i];
+            length = numbers.length;
+            int[] array = new int[length];
+            for (int ite = 0; ite < length; ite++) {
+                array[ite] = Integer.parseInt(numbers[ite]);
             }
+
+            max = array[0];
+            min = array[0];
+
+            for (int j = 0; j < array.length; j++) {
+                if (max < array[j]) {
+                    max = array[j];
+                } else if (min > array[j]) {
+                    min = array[j];
+                }
+            }
+
+            resultado += max - min;
         }
 
-        resultado = max - min;
-        
         return resultado;
     }
 
-    int parte2(String input) {
+    int parte2(ArrayList<String> input) {
         return 0;
     }
 }
