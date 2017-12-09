@@ -29,7 +29,7 @@ public class Day2 {
     }
 
     int parte1(ArrayList<String> input) {
-        int length = 0, resultado = 0;
+        int length, resultado = 0;
         int max, min;
 
         for (int i = 0; i < input.size(); i++) {
@@ -59,6 +59,26 @@ public class Day2 {
     }
 
     int parte2(ArrayList<String> input) {
-        return 0;
+        int length, resultado = 0;
+
+        for (int i = 0; i < input.size(); i++) {
+            String[] numbers = input.get(i).split("\\s+");
+
+            length = numbers.length;
+            int[] array = new int[length];
+            for (int arrayIte = 0; arrayIte < length; arrayIte++) {
+                array[arrayIte] = Integer.parseInt(numbers[arrayIte]);
+            }
+
+            for (int base = 0; base < array.length; base++) {
+                for (int iterator = 0; iterator < array.length; iterator++) {
+                    if (array[base] % array[iterator] == 0 && base != iterator) {
+                        resultado += array[base] / array[iterator];
+                    }
+                }
+            }
+        }
+
+        return resultado;
     }
 }

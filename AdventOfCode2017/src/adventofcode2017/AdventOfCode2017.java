@@ -19,15 +19,18 @@ public class AdventOfCode2017 {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        int day, menu = 0, parte = 0, resultado = 0;
+        int day, menu = 0, parte = 0, resultado;
         Scanner sc = new Scanner(System.in);
         String input;
         ArrayList<String> lines = new ArrayList<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         while (menu == 0) {
+            resultado = 0;
+            lines.clear();
 
             System.out.print("Choose a day!\n0 to exit.\n> ");
             day = sc.nextInt();
